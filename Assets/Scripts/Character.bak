@@ -1,0 +1,170 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.VFX;
+
+[RequireComponent(typeof(CharacterController))]
+public class Character : MonoBehaviour {
+    private CharacterController controller;
+    private Animator anim;
+
+    [SerializeField] float baseSpeed = 8;
+
+    [SerializeField] private float jumpMultiplier = 10f;
+    [SerializeField] float gravity = -9.81f;
+    [SerializeField] LayerMask groundLayerMask;
+
+    [SerializeField] float rotationSpeed = 0.1f;
+
+    [SerializeField] public bool canMove = true;
+    private bool isGrounded;
+    private bool isBlocking;
+
+    public Vector2 moveInput;
+    public bool desiredJump = false;
+    public bool desiredPunch = false;
+    public bool desiredKick = false;
+    public bool desiringBlock = false;
+
+    [SerializeField] private float direction = 1f;
+    [SerializeField] private float velY = 0;
+
+    public Vector3 impact = Vector3.zero;
+    public float health = 100;
+
+    [SerializeField] private VisualEffect smoke;
+    [SerializeField] private VisualEffect landingDust;
+
+    void Start() {
+        controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
+    }
+
+    void Update() {
+        bool wasGrounded = isGrounded;
+        isGrounded = CheckIsGrounded();
+        if (controller.isGrounded)
+            velY = 0;
+
+        if (!wasGrounded && isGrounded) {
+            Instantiate(landingDust.gameObject, transform.position, Quaternion.identity);
+        }
+
+        float speed = !canMove || moveInput.x == 0 ? 0 : baseSpeed;
+        if (speed > 0)
+            direction = moveInput.x > 0 ? 1 : -1;
+        controller.Move(Vector3.right * direction * speed * Time.deltaTime);
+
+        if (desiredJump) {
+            desiredJump = false;
+            if (canMove && isGrounded) {
+                velY = jumpMultiplier * -gravity;
+                anim.SetTrigger("Jump");
+            }
+        }
+
+        isBlocking = desiringBlock && isGrounded;
+        anim.SetBool("IsBlocking", isBlocking);
+
+        Vector3 offset = new Vector3();
+        velY += gravity * Time.deltaTime;
+        offset.y = velY;
+
+        impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+        offset += impact;
+
+        controller.Move(offset);
+
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            Quaternion.LookRotation(Vector3.right * direction),
+            rotationSpeed
+        );
+
+        anim.SetFloat("InputMagnitude", speed / baseSpeed, .02f, Time.deltaTime); //TODO sprint?
+        anim.SetBool("isGrounded", isGrounded);
+
+        if (desiredPunch) {
+            desiredPunch = false;
+            if (canMove) {
+                Attack();
+                anim.SetTrigger("Punch");
+            }
+        }
+
+        if (desiredKick) {
+            desiredKick = false;
+            if (canMove) {
+                Attack();
+                anim.SetTrigger("Kick");
+            }
+        }
+    }
+
+    bool CheckIsGrounded() {
+        return Physics.Raycast(
+            transform.position + (transform.up * .05f),
+            Vector3.down,
+            .1f,
+            groundLayerMask
+        );
+    }
+
+    bool CheckUpperContact() {
+        return Physics.Raycast(
+            transform.position + (transform.up * .5f),
+            Vector3.up,
+            1.5f,
+            groundLayerMask
+        );
+    }
+
+    private void Attack() {
+        RaycastHit hit;
+        if (Physics.Raycast(
+                transform.position + (transform.up * .7f),
+                transform.forward,
+                out hit,
+                1
+            )) {
+            if (hit.collider.gameObject != gameObject && hit.collider.GetComponent<Character>())
+                hit.collider.GetComponent<Character>().OnKnockback(transform.position);
+        }
+    }
+
+    public void OnKnockback(Vector3 from) {
+        if (isBlocking)
+            return;
+        health -= Random.Range(5f, 10f);
+        // health -= Random.Range(50f, 80f);
+        if (health <= 0f) {
+            health = 0f;
+            //TODO
+        }
+
+        var forceDir = transform.position - from;
+        var forceDirNorm = forceDir.normalized;
+        var fromRight = forceDir.x < 0;
+        impact += Vector3.right * (!fromRight ? 1 : -1) * .7f;
+        impact += Vector3.up * jumpMultiplier * -gravity;
+
+        anim.SetFloat("KnockOverDir", Vector3.Dot(forceDirNorm, Vector3.right * direction) > 0 ? -1 : 1);
+        anim.SetTrigger("KnockOver");
+        smoke.Play();
+        StopCoroutine(nameof(EOnKnockback));
+        StartCoroutine(nameof(EOnKnockback));
+    }
+
+    IEnumerator EOnKnockback() {
+        canMove = false;
+        yield return new WaitForSeconds(1f);
+        smoke.Stop();
+        yield return new WaitForSeconds(.7f);
+        canMove = true;
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = isGrounded ? Color.yellow : Color.blue;
+        Gizmos.DrawRay(transform.position + (transform.up * .05f), Vector3.down * .2f);
+    }
+}

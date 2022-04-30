@@ -1,0 +1,63 @@
+.Action {
+    margin-left: 16px;
+    margin-right: 16px;
+    flex-direction: row;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/Fonts/SourceHanSansHC-Regular.otf?fileID=12800000&guid=53992a9aadcfe4c8dae93e074fb24d21&type=3#SourceHanSansHC-Regular');
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    align-items: center;
+}
+
+.KeyboardKey {
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/Fonts/SourceHanSansHC-Regular.otf?fileID=12800000&guid=53992a9aadcfe4c8dae93e074fb24d21&type=3#SourceHanSansHC-Regular');
+    -unity-text-align: upper-left;
+    color: rgb(154, 154, 154);
+    font-size: 12px;
+    -unity-font-style: bold;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.HealthBar {
+}
+
+.Energy {
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+    background-image: url('project://database/Assets/Icons/Hit.psd?fileID=988461181&guid=5083b8ea032224abe8f39a30b3485a95&type=3#Hit_4');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.unity-button:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+.unity-button:active {
+    background-color: rgb(204, 204, 204);
+}
+
+.unity-button:disabled {
+    color: rgba(153, 153, 153, 255);
+}
+
+.unity-button {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    background-color: rgb(255, 255, 255);
+}

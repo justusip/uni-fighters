@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UXmls/Styles.uss?fileID=7433441132597879392&amp;guid=9e0627555281e464cb128cb03b19c917&amp;type=3#Styles" />
+    <ui:VisualElement style="position: absolute; width: 100%; height: 100%; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Shaders/Title.psd?fileID=21300000&amp;guid=4068fb1ae3bf341a3930bbdd5808d0a0&amp;type=3#Title&apos;); width: 402px; height: 124px;" />
+        <ui:Label text="Contains Copyright Music.\nFor personal use only." display-tooltip-when-elided="true" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; background-color: rgba(0, 0, 0, 0.78); font-size: 11px; color: rgb(255, 255, 255); border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="SettingsOverlay" style="width: 100%; height: 100%; align-items: center; justify-content: center; position: absolute; background-color: rgba(0, 0, 0, 0.4); visibility: hidden;">
+        <ui:VisualElement name="Popup" style="background-color: rgb(255, 255, 255); border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; overflow: hidden;">
+            <ui:Label text="Settings" display-tooltip-when-elided="true" name="Header" style="padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; background-color: rgb(173, 47, 47); color: rgb(255, 255, 255); -unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/Fonts/FOT-GospelStd-EB%20SDF.asset?fileID=11400000&amp;guid=d96b76ffe0ac0489cbf0526161cb8e07&amp;type=2#FOT-GospelStd-EB SDF&apos;); font-size: 16px;" />
+            <ui:VisualElement name="Content" style="padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; width: 500px;">
+                <ui:VisualElement style="flex-direction: row; align-items: center; justify-content: flex-start;">
+                    <ui:Label text="Difficulty" display-tooltip-when-elided="true" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-grow: 1; font-size: 16px;" />
+                    <ui:Button text="Easy" name="BtnDifficulty" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 32px; padding-right: 32px; padding-top: 8px; padding-bottom: 8px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 0;">
+                    <ui:Button text="Cancel" name="BtnCancel" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 8px; padding-right: 8px; padding-top: 4px; padding-bottom: 4px; flex-grow: 1;" />
+                    <ui:Button text="Confirm" name="BtnConfirm" style="margin-left: 8px; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 4px; padding-right: 4px; padding-top: 8px; padding-bottom: 8px; flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

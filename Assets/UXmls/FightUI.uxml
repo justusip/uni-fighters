@@ -1,0 +1,58 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UXmls/Styles.uss?fileID=7433441132597879392&amp;guid=9e0627555281e464cb128cb03b19c917&amp;type=3#Styles" />
+    <ui:VisualElement name="Body" style="height: 100%; width: 100%; justify-content: center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; flex-direction: column; align-items: center;">
+        <ui:VisualElement style="height: initial; width: 100px;" />
+        <ui:VisualElement name="TopSection" style="margin-bottom: auto; flex-direction: row; align-items: center; width: 100%; justify-content: space-around;">
+            <ui:VisualElement name="PlayerStatsL" style="height: auto; width: 100%; justify-content: flex-start; align-items: flex-start;">
+                <ui:VisualElement name="HealthBar" style="background-color: rgba(255, 255, 255, 0.2); height: 20px; width: 100%;">
+                    <ui:VisualElement name="HealthBarVal" style="background-color: rgb(255, 77, 61); height: 100%; width: 60%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label text="12" name="TimeLeft" style="font-size: 32px; margin-left: 32px; margin-right: 32px; margin-top: 0; margin-bottom: 0; width: 50px; height: 50px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Fonts/FOT-GospelStd-EB.otf?fileID=12800000&amp;guid=767a6cee7f58246efb3f52d040545f60&amp;type=3#FOT-GospelStd-EB&apos;); color: rgb(255, 255, 255);" />
+            <ui:VisualElement name="PlayerStatsR" style="height: auto; width: 100%; justify-content: flex-start; align-items: auto;">
+                <ui:VisualElement name="HealthBar" style="background-color: rgba(255, 255, 255, 0.2); height: 20px; width: 100%; align-items: auto;">
+                    <ui:VisualElement name="HealthBarVal" style="background-color: rgb(255, 77, 61); height: 100%; width: 60%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="EnergyBar" style="height: auto; width: auto; flex-direction: row; margin-bottom: 16px;">
+            <ui:VisualElement class="Energy" style="background-image: url(&apos;project://database/Assets/Icons/Hit.psd?fileID=988461181&amp;guid=5083b8ea032224abe8f39a30b3485a95&amp;type=3#Hit_4&apos;);" />
+            <ui:VisualElement class="Energy" style="background-image: url(&apos;project://database/Assets/Icons/Hit.psd?fileID=988461181&amp;guid=5083b8ea032224abe8f39a30b3485a95&amp;type=3#Hit_4&apos;);" />
+            <ui:VisualElement class="Energy" style="background-image: url(&apos;project://database/Assets/Icons/Hit.psd?fileID=988461181&amp;guid=5083b8ea032224abe8f39a30b3485a95&amp;type=3#Hit_4&apos;);" />
+            <ui:VisualElement class="Energy" style="background-image: url(&apos;project://database/Assets/Icons/Hit.psd?fileID=988461181&amp;guid=5083b8ea032224abe8f39a30b3485a95&amp;type=3#Hit_4&apos;);" />
+            <ui:VisualElement class="Energy" style="background-image: url(&apos;project://database/Assets/Icons/Hit.psd?fileID=988461181&amp;guid=5083b8ea032224abe8f39a30b3485a95&amp;type=3#Hit_4&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BottomSection" style="align-items: center; flex-direction: row; justify-content: center;">
+            <ui:VisualElement name="Move" class="Action">
+                <ui:Label text="A" class="KeyboardKey" />
+                <ui:Label class="KeyboardKey" style="width: 80px;" />
+                <ui:Label text="D" class="KeyboardKey" />
+                <ui:Label text="Move" />
+            </ui:VisualElement>
+            <ui:VisualElement class="Action">
+                <ui:Label text="J" class="KeyboardKey" />
+                <ui:Label text="Punch" />
+            </ui:VisualElement>
+            <ui:VisualElement class="Action">
+                <ui:Label text="K" class="KeyboardKey" />
+                <ui:Label text="Kick" />
+            </ui:VisualElement>
+            <ui:VisualElement class="Action">
+                <ui:Label text="L" class="KeyboardKey" />
+                <ui:Label text="Block" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="GameOverOverlay" style="width: 100%; height: 100%; position: absolute; background-color: rgb(0, 0, 0); justify-content: center; align-items: flex-end; flex-direction: row; padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; visibility: hidden;">
+        <ui:Button text="Restart" name="BtnRestart" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+        <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="BtnMainMenu" style="margin-left: 8px; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+    </ui:VisualElement>
+    <ui:Label text="Label" display-tooltip-when-elided="true" name="CenterText" picking-mode="Ignore" style="width: 100%; height: 100%; position: absolute; color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/Fonts/FOT-GospelStd-EB%20SDF.asset?fileID=11400000&amp;guid=d96b76ffe0ac0489cbf0526161cb8e07&amp;type=2#FOT-GospelStd-EB SDF&apos;); -unity-text-align: middle-center; font-size: 64px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 16px; padding-right: 16px; padding-top: 16px; padding-bottom: 16px; visibility: hidden;" />
+    <ui:VisualElement name="PauseMenu" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.78); align-items: center; justify-content: center; visibility: hidden;">
+        <ui:Label text="Paused" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/Fonts/FOT-GospelStd-EB%20SDF.asset?fileID=11400000&amp;guid=d96b76ffe0ac0489cbf0526161cb8e07&amp;type=2#FOT-GospelStd-EB SDF&apos;); font-size: 48px;" />
+        <ui:VisualElement style="margin-top: 64px; flex-direction: row;">
+            <ui:Button text="Restart" display-tooltip-when-elided="true" name="BtnRestart2" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+            <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="BtnMainMenu2" style="margin-left: 8px; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
