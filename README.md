@@ -11,7 +11,9 @@
 
 ---
 
-<img src="GitResources/Poster-LowRes.jpg" alt="Booklet" />
+<a href="https://raw.githubusercontent.com/justusip/smash/master/GitResources/Poster-LowRes.jpg">
+    <img src="GitResources/Poster-LowRes.jpg" alt="Booklet" />
+</a>
 
 </div>
 
@@ -22,3 +24,11 @@
 - [https://github.com/justusip/smash/releases](https://github.com/justusip/smash/releases)
 - Head to the latest build
 - Download build_win_xxx for Windows and build_macos_xxx for MacOS.
+
+## Screenshots
+
+<img src="GitResources/1.png" alt="Screenshot 1" width="400px" />
+<img src="GitResources/2.png" alt="Screenshot 2" width="400px" />
+<img src="GitResources/3.png" alt="Screenshot 3" width="400px" />
+<img src="GitResources/4.png" alt="Screenshot 4" width="400px" />
+<img src="GitResources/5.png" alt="Screenshot 5" width="400px" />
