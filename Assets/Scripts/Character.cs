@@ -256,7 +256,7 @@ public class Character : MonoBehaviour {
         if (wasAlive && health <= 0) {
             anim.SetTrigger("Dead");
         } else {
-            anim.SetFloat("KnockOverDir", facesForce ? -1 : 1);
+            anim.SetFloat("KnockOverDir", facesForce ? 1 : -1);
             anim.SetTrigger("KnockOver");
         }
 
