@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="GitResources/Title.png" alt="Logo" width="400px" />
+    <img src="GitResources/TitleShadowed.png" alt="Logo" width="400px" />
 </p>
 <div align="center">
 
