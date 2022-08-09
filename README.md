@@ -11,7 +11,7 @@
 
 ---
 
-<a href="https://raw.githubusercontent.com/justusip/smash/master/GitResources/Poster-LowRes.jpg">
+<a href="https://raw.githubusercontent.com/justusip/uni-fighters/master/GitResources/Poster-LowRes.jpg">
     <img src="GitResources/Poster-LowRes.jpg" alt="Booklet" />
 </a>
 
