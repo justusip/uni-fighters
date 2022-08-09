@@ -21,7 +21,7 @@
 
 ## Builds
 
-- [https://github.com/justusip/smash/releases](https://github.com/justusip/smash/releases)
+- [https://github.com/justusip/uni-fighters/releases](https://github.com/justusip/uni-fighters/releases)
 - Head to the latest build
 - Download build_win_xxx for Windows and build_macos_xxx for MacOS.
 
